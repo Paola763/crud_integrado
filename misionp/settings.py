@@ -74,9 +74,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'mvp_trazabilidad',   #nombre de la base de datos a utilizar(phpmyadmin)
-        'USER': 'root',                # usuario root
+        'USER': 'paola',                # usuario root
         'PASSWORD': '19471947',   # contraseña de root
-        'HOST': '127.0.0.1',           #localhost
+        'HOST': 'localhost',           #localhost
         'PORT': '3306',
         'OPTIONS': {
             'charset': 'utf8mb4',

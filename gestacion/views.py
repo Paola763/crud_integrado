@@ -1,3 +1,4 @@
+# gestacion/views.py
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -8,7 +9,7 @@ from .forms import MadreForm, PartoForm, RNForm
 def home(request):
     return render(request, "home.html")
 
-# MADRE
+# ===== MADRE =====
 class MadreList(LoginRequiredMixin, ListView):
     model = Madre
     paginate_by = 10
@@ -31,7 +32,7 @@ class MadreDelete(LoginRequiredMixin, DeleteView):
     success_url = reverse_lazy("madre_list")
     template_name = "confirm_delete.html"
 
-# PARTO
+# ===== PARTO =====
 class PartoList(LoginRequiredMixin, ListView):
     model = Parto
     paginate_by = 10
@@ -44,7 +45,6 @@ class PartoCreate(LoginRequiredMixin, CreateView):
     template_name = "parto/form.html"
 
     def form_valid(self, form):
-        # opcional: guardar quién registró
         if self.request.user.is_authenticated:
             form.instance.registrado_por = self.request.user
         return super().form_valid(form)
@@ -60,7 +60,7 @@ class PartoDelete(LoginRequiredMixin, DeleteView):
     success_url = reverse_lazy("parto_list")
     template_name = "confirm_delete.html"
 
-# RN
+# ===== RECIÉN NACIDO =====
 class RNList(LoginRequiredMixin, ListView):
     model = RecienNacido
     paginate_by = 10

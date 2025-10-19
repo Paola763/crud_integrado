@@ -52,6 +52,10 @@ TEMPLATES = [
     },
 ]
 
+LOGIN_REDIRECT_URL = 'home'  # A dónde irá el usuario después de iniciar sesión
+LOGOUT_REDIRECT_URL = 'home'  # A dónde irá después de cerrar sesión
+# LOGIN_URL por defecto ya es 'accounts/login/'
+
 WSGI_APPLICATION = 'misionp.wsgi.application'
 
 

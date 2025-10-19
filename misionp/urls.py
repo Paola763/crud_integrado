@@ -5,5 +5,7 @@ from django.urls import path, include #se agrega librería función include para
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include('gestacion'.urls)), #raiz al módulo gestación a través de archivo urls
+    path('',include('gestacion.urls')), #raiz al módulo gestación a través de archivo urls
+    path('accounts/', include('django.contrib.auth.urls')), #para activar las urls de autenticación
+
 ]

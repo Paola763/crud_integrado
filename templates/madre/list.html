@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Madres{% endblock %}
+{% block content %}
+<h2>Madres</h2>
+<p><a class="btn" href="{% url 'madre_create' %}">Nueva madre</a></p>
+<table>
+  <tr><th>ID</th><th>Nombre</th><th>Edad</th><th>RUN</th><th>Acciones</th></tr>
+  {% for o in object_list %}
+    <tr>
+      <td>{{ o.id }}</td>
+      <td>{{ o.nombre_completo }}</td>
+      <td>{{ o.edad }}</td>
+      <td>{{ o.rut|default:"—" }}</td>
+      <td>
+        <a class="btn sec" href="{% url 'madre_update' o.pk %}">Editar</a>
+        <a class="btn" href="{% url 'madre_delete' o.pk %}">Eliminar</a>
+      </td>
+    </tr>
+  {% empty %}
+    <tr><td colspan="5"><em>Sin registros</em></td></tr>
+  {% endfor %}
+</table>
+{% if is_paginated %}
+  <p>Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}</p>
+{% endif %}
+{% endblock %}

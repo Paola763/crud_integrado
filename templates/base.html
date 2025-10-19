@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}Módulo Gestación{% endblock %}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body{font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif;max-width:1000px;margin:24px auto;padding:0 16px}
+    table{border-collapse:collapse;width:100%} th,td{border:1px solid #ddd;padding:8px}
+    th{background:#f6f8fa;text-align:left}
+    a.btn, button.btn{background:#111;color:#fff;padding:6px 10px;border-radius:6px;text-decoration:none;border:0}
+    a.btn.sec{background:#666}
+    nav a{margin-right:10px}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Gestión de Partos y Pacientes</h1>
+    <nav>
+      <a href="{% url 'home' %}">Inicio</a>
+      <a href="{% url 'madre_list' %}">Madres</a>
+      <a href="{% url 'parto_list' %}">Partos</a>
+      <a href="{% url 'rn_list' %}">Recién Nacidos</a>
+    </nav>
+    <hr>
+  </header>
+  {% block content %}{% endblock %}
+</body>
+</html>

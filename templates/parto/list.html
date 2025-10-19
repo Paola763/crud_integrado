@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}Partos{% endblock %}
+{% block content %}
+<h2>Partos</h2>
+
+<p><a class="btn" href="{% url 'parto_create' %}">Nuevo parto</a></p>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Madre</th>
+    <th>Fecha</th>
+    <th>Tipo de parto</th>
+    <th>Analgesia</th>
+    <th>Acompañamiento</th>
+    <th>Gestación (sem)</th>
+    <th>Complicaciones</th>
+    <th>Acciones</th>
+  </tr>
+
+  {% for o in object_list %}
+  <tr>
+    <td>{{ o.id }}</td>
+    <td>{{ o.madre.nombre_completo }}</td>
+    <td>{{ o.fecha_parto }}</td>
+    <td>{{ o.get_tipo_parto_display }}</td>
+    <td>{{ o.get_analgesia_display|default:"—" }}</td>
+    <td>{{ o.get_acompanamiento_display }}</td>
+    <td>{{ o.edad_gestacional }}</td>
+    <td>{% if o.complicaciones %}Sí{% else %}No{% endif %}</td>
+    <td>
+      <a class="btn sec" href="{% url 'parto_update' o.pk %}">Editar</a>
+      <a class="btn" href="{% url 'parto_delete' o.pk %}">Eliminar</a>
+    </td>
+  </tr>
+  {% empty %}
+  <tr>
+    <td colspan="9"><em>Sin registros de partos</em></td>
+  </tr>
+  {% endfor %}
+</table>
+
+{% if is_paginated %}
+  <p>Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}</p>
+{% endif %}
+{% endblock %}

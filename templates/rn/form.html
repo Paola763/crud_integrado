@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Recién Nacido{% endblock %}
+{% block content %}
+<h2>Registro de Recién Nacido</h2>
+
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button class="btn" type="submit">Guardar</button>
+  <a class="btn sec" href="{% url 'rn_list' %}">Cancelar</a>
+</form>
+{% endblock %}

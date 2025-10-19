@@ -15,3 +15,22 @@
 #Email address: matrona1@hospitalchillan.cl
 #Password: Matrona2025*
 #Password (again): Matrona2025*
+
+
+#para cargar interfaz
+#python manage.py makemigrations
+#python manage.py migrate
+#python manage.py runserver
+
+#para verificar migraciones aplicadas
+#python manage.py showmigrations gestacion
+#debe entregar: [X] 0001_initial
+
+
+#PASO A PASO PARA ALGUIEN QUE LO CORRE POR PRIMERA VEZ
+#python -m venv .venv
+#source .venv/bin/activate
+#pip install -r requirements.txt
+#python manage.py migrate
+#python manage.py createsuperuser
+#python manage.py runserver
